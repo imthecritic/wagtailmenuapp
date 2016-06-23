@@ -55,37 +55,43 @@ li.dropdown {
 <ul>
    {% load_menus 'Main_Menu' as Main_Menu %}
     {% for menu_item in Main_Menu %}
-        {% if menu_item.childtitle0 %}
+            {%elif menu_item.page_title1 %}
+            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
+                <div class ="dropdown-content">
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title0 }}</a>
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
+                    <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
+                    <a href="{{ menu_item.page_3.url }}">{{ menu_item.page_title3 }}</a>
+                </div>
+            </li>
+        {%elif menu_item.page_title2 %}
+            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
+                <div class ="dropdown-content">
+                    <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
+                    <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
+                </div>
+            </li>
+            
+        {%elif menu_item.page_title1 %}
+            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
+                <div class ="dropdown-content">
+                    <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
+                </div>
+            </li>
+
+        {% if menu_item.page_title0 %}
             <li class="dropdown">
                 <a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
                 <div class ="dropdown-content">
-                  <a href="{{ menu_item.childpage0.url }}">{{ menu_item.childtitle0 }}</a>
+                  <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
                 </div>
             </li>
-        {%elif menu_item.childtitle1 %}
-            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
-                <div class ="dropdown-content">
-                    <a href="{{ menu_item.childpage0.url }}">{{ menu_item.childtitle0 }}</a>
-                    <a href="{{ menu_item.childpage1.url }}">{{ menu_item.childtitle1 }}</a>
-                </div>
-            </li>
-        {%elif menu_item.childtitle2 %}
-            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
-                <div class ="dropdown-content">
-                    <a href="{{ menu_item.childpage0.url }}">{{ menu_item.childtitle0 }}</a>
-                    <a href="{{ menu_item.childpage1.url }}">{{ menu_item.childtitle1 }}</a>
-                    <a href="{{ menu_item.childpage2.url }}">{{ menu_item.childtitle2 }}</a>
-                </div>
-            </li>
-        {%elif menu_item.childtitle3 %}
-            <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
-                <div class ="dropdown-content">
-                    <a href="{{ menu_item.childpage0.url }}">{{ menu_item.childtitle0 }}</a>
-                    <a href="{{ menu_item.childpage1.url }}">{{ menu_item.childtitle1 }}</a>
-                    <a href="{{ menu_item.childpage2.url }}">{{ menu_item.childtitle2 }}</a>
-                    <a href="{{ menu_item.childpage3.url }}">{{ menu_item.childtitle3 }}</a>
-                </div>
-            </li>
+
+            
+        {%elif menu_item.page_url %}
+            <li><a href="{{ menu_item.url }}" target ="_blank">{{ menu_item }}</a></li>
         {% else %}
             <li><a href="{{ menu_item.url }}">{{ menu_item }}</a></li>
         {% endif %}
