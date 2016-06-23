@@ -1,3 +1,4 @@
+{% load my_tags %}
 <head>
 <style>
 ul {
@@ -55,37 +56,37 @@ li.dropdown {
 <ul>
    {% load_menus 'Main_Menu' as Main_Menu %}
     {% for menu_item in Main_Menu %}
-            {%elif menu_item.page_title1 %}
+            {%elif menu_item.page_title4 %}
             <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
                 <div class ="dropdown-content">
-                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title0 }}</a>
-                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
-                    <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
+                    <a href="{{ menu_item.page_4.url }}">{{ menu_item.page_title4 }}</a>
                     <a href="{{ menu_item.page_3.url }}">{{ menu_item.page_title3 }}</a>
+                    <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
                 </div>
             </li>
-        {%elif menu_item.page_title2 %}
+        {%elif menu_item.page_title3 %}
             <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
                 <div class ="dropdown-content">
-                    <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
-                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
+                    <a href="{{ menu_item.page_3.url }}">{{ menu_item.page_title3 }}</a>
                     <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
+                    <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
                 </div>
             </li>
             
-        {%elif menu_item.page_title1 %}
+        {%elif menu_item.page_title2 %}
             <li class="dropdown"><a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
                 <div class ="dropdown-content">
-                    <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
+                    <a href="{{ menu_item.page_2.url }}">{{ menu_item.page_title2 }}</a>
                     <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
                 </div>
             </li>
 
-        {% if menu_item.page_title0 %}
+        {% if menu_item.page_title1 %}
             <li class="dropdown">
                 <a href="{{ menu_item.url }}" class="dropbtn">{{ menu_item }}</a>
                 <div class ="dropdown-content">
-                  <a href="{{ menu_item.page_0.url }}">{{ menu_item.page_title0 }}</a>
+                  <a href="{{ menu_item.page_1.url }}">{{ menu_item.page_title1 }}</a>
                 </div>
             </li>
 
